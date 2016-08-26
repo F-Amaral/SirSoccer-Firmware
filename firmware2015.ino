@@ -5,6 +5,8 @@
 Motor * motor = new Motor(MotorAPWM, MotorA1, MotorA2, MotorBPWM, MotorB1, MotorB2, STDBY);
 unsigned long timestamp = 0;
 int xbeeBuffer[4] = {0, 0, 0, 0};
+Command cmd;
+
 void setup() {
   //Serial.begin(57600);
   Serial1.begin(57600);
@@ -13,22 +15,28 @@ void setup() {
 
 Command old;
 
-void loop() {
-  moveRobot(receiveMessage());
-
+void loop(){
+  cmd = receiveMessage();
+  moveRobot(cmd);
 }
 
 Command receiveMessage() {
+  //Serial.println(Serial1.available(), DEC);
   Command cmd;
-  if (Serial1.available() > 4) {
-    if (Serial1.read() == 10) {
-      int i = 0;
-      while (Serial1.peek() != 11) {
-        xbeeBuffer[i] = Serial1.read();
-        i++;
-      }
-    }
+
+  /*while(Serial1.peek() != 11);
+  while(Serial1.read() != 10);
+  for(int i = 0 ; i < 3 ; i++){
+    xbeeBuffer[i] = Serial1.read();
+  }*/
+  while(Serial1.read() != 10);
+  //delay(10);
+  while(Serial1.available() < 3);
+  for(int i = 0 ; i < 3 ; i++){
+    xbeeBuffer[i] = Serial1.read();
   }
+  //Serial1.flush();
+
   switch (xbeeBuffer[0]) {
     case 0:
       cmd.directionA = 0;
