@@ -2,7 +2,8 @@ SirSoccer-Robot 2016
 ====================
 
 Reboot
---```
+------
+```
 $ sudo reboot
 ```
 
