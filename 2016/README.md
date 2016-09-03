@@ -1,6 +1,17 @@
 SirSoccer-Robot 2016
 ====================
 
+Reboot
+--```
+$ sudo reboot
+```
+
+Shutdown
+--------
+```
+$ sudo shutdown -h now
+```
+
 1 - Expand SD Card
 ------------------
 Open *raspi-config*.
