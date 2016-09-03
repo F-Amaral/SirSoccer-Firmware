@@ -1,8 +1,8 @@
 SirSoccer-Robot 2016
 ====================
 
-Resized SD Card
----------------
+Resize SD Card
+--------------
 Open *raspi-config*.
 
 ```
@@ -37,6 +37,12 @@ Add the following lines before the wpa-conf line:
 address 192.168.0.50    # Static IP you want 
 netmask 255.255.255.0 
 gateway 192.168.0.1     # IP of your router
+```
+
+Access via SSH
+--------------
+```
+$ ssh pi@<IP> ex: ssh pi@192.168.0.50
 ```
 
 Sources
