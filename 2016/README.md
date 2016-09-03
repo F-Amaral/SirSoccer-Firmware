@@ -1,17 +1,17 @@
 SirSoccer-Robot 2016
 ====================
 
-Resize SD Card
---------------
+1 - Expand SD Card
+------------------
 Open *raspi-config*.
 
 ```
 $ sudo raspi-config
 ```
-Select resize and Reboot.
+Select Expand and Reboot.
 
-Define Wi-Fi Connection
------------------------
+2 - Define Wi-Fi Connection
+---------------------------
 Open the *wpa-supplicant* configuration file:
 ```
 $ sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
@@ -26,8 +26,8 @@ network={
 ```
 Reboot
 
-Define a Static IP
-------------------
+3 - Define a Static IP
+----------------------
 Open the */etc/network/interfaces* file and add the following changes:
 
 Change *iface wlan0 inet dhcp* into *iface wlan0 inet static*. This changes the wlan0 interface from DHCP to static.
@@ -39,11 +39,20 @@ netmask 255.255.255.0
 gateway 192.168.0.1     # IP of your router
 ```
 
-Access via SSH
---------------
+4 - Access via SSH
+------------------
 ```
 $ ssh pi@<IP> ex: ssh pi@192.168.0.50
 ```
+
+5 - Disable the Graphics User Interface
+---------------------------------------
+Open *raspi-config*.
+
+```
+$ sudo raspi-config
+```
+Select Boot->Console Auto-Login and Reboot
 
 Sources
 -------
