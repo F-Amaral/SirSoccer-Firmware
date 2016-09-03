@@ -44,6 +44,7 @@ gateway 192.168.0.1     # IP of your router
 ```
 $ ssh pi@<IP> ex: ssh pi@192.168.0.50
 ```
+*User:* pi, *Password:* raspberry
 
 5 - Disable the Graphics User Interface
 ---------------------------------------
@@ -52,7 +53,7 @@ Open *raspi-config*.
 ```
 $ sudo raspi-config
 ```
-Select Boot->Console Auto-Login and Reboot
+Select *Boot->Console*   Auto-Login and Reboot
 
 Sources
 -------
